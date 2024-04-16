@@ -1,4 +1,5 @@
 "use client";
+import { useDebounce } from "@/app/hooks/useDebounce";
 import {
   Box,
   Button,
@@ -30,10 +31,13 @@ export default function CartItem({
   onUpdate,
 }: CartItemProps) {
   const [quantityValue, setQuantityValue] = useState(quantity);
+  const debouncedQuantity = useDebounce(quantityValue, 700);
 
   useEffect(() => {
-    onUpdate(quantityValue);
-  }, [quantityValue, onUpdate]);
+    if (typeof debouncedQuantity === "number") {
+      onUpdate(debouncedQuantity);
+    }
+  }, [debouncedQuantity, onUpdate]);
 
   function handleChangeQuantity(event: React.ChangeEvent<HTMLInputElement>) {
     setQuantityValue(Number(event.target.value));
