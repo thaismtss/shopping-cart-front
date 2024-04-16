@@ -22,7 +22,12 @@ export default function Header() {
         href="/cart"
       >
         <ShoppingCart />
-        Carrinho ({!isLoading ? cart?.totalCartItems : " "})
+        Carrinho{" "}
+        {isLoading ? (
+          <span>( )</span>
+        ) : (
+          <span>({cart?.totalCartItems || 0})</span>
+        )}
       </Link>
     </Box>
   );

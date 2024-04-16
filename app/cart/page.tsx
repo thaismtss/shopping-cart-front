@@ -77,7 +77,14 @@ export default function Cart() {
                 >
                   Meu carrinho
                 </Text>
-                <Grid templateColumns="repeat(2, 1fr)" gap={12} mt="12">
+                <Grid
+                  templateColumns={{
+                    base: "repeat(1, 1fr)",
+                    md: "repeat(2, 1fr)",
+                  }}
+                  gap={12}
+                  mt="12"
+                >
                   <GridItem>
                     <Text fontSize="xl" fontWeight="600" mb={2}>
                       {cart?.totalCartItems} Itens no carrinho
@@ -99,7 +106,7 @@ export default function Cart() {
                         ))}
                     </Flex>
                   </GridItem>
-                  <GridItem mt={10}>
+                  <GridItem mt={{ md: 10 }}>
                     <ResumeCart
                       quantityItems={cart?.totalCartItems || 0}
                       subtotal={cart?.subtotal || 0}

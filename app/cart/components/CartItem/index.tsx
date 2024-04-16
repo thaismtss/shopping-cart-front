@@ -70,9 +70,10 @@ export default function CartItem({
         display="flex"
         justifyContent="space-between"
         alignItems="center"
+        flexWrap="wrap"
         gap={4}
       >
-        <Box>
+        <Box w="100%">
           <Text fontSize="lg" fontWeight={600}>
             {title}
           </Text>

@@ -2,9 +2,11 @@
 import { Container, Flex, Text } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
 import HeroSection from "./Components/HeroSection";
 import ProductCard from "./Components/ProductCard";
 import ProductSkeleton from "./Components/ProductSkeleton";
+import { CartContext } from "./context/cart";
 
 interface Product {
   id: number;
@@ -15,6 +17,7 @@ interface Product {
 
 export default function Home() {
   const router = useRouter();
+  const { refetch } = useContext(CartContext);
   const { data: products, isLoading } = useQuery<Product[]>({
     queryKey: ["products"],
     queryFn: () =>
@@ -41,6 +44,7 @@ export default function Home() {
     const data = await res.json();
 
     if (data.success) {
+      refetch();
       router.push("/cart");
     }
   }
@@ -59,8 +63,12 @@ export default function Home() {
           Novidades
         </Text>
       </Container>
-      <Container maxW="container.xl" mt="10" mb="20">
-        <Flex flexWrap="wrap" gap={3}>
+      <Container
+        maxW={{ base: "container.2xl", md: "container.xl" }}
+        mt="10"
+        mb="20"
+      >
+        <Flex flexWrap="wrap" gap={3} justifyContent="center">
           {isLoading &&
             [...Array(6)].map((_, index) => <ProductSkeleton key={index} />)}
           {products?.map((product) => (

@@ -30,7 +30,7 @@ export default function ProductCard({
   };
 
   return (
-    <Card maxW="sm" flexBasis="calc(33.3333% - 20px)" margin="10px">
+    <Card maxW="sm" minW="xs" flexBasis="calc(33.3333% - 20px)" margin="10px">
       <CardBody display="flex" flexDirection="column" gap={3}>
         <Image
           src={imageUrl}
@@ -41,7 +41,7 @@ export default function ProductCard({
           height="200px"
           margin="auto"
         />
-        <Heading size="md" flex={1}>
+        <Heading size="md" flex={1} w="100%">
           {title}
         </Heading>
         <Text color="blue.600" fontSize="2xl">
