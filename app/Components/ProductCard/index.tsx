@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Box,
   Button,
   Card,
   CardBody,
@@ -15,13 +16,19 @@ interface ProductCardProps {
   imageUrl: string;
   title: string;
   price: number;
+  onAddToCart: () => void;
 }
 
 export default function ProductCard({
   imageUrl,
   title,
   price,
+  onAddToCart,
 }: ProductCardProps) {
+  const handleAddToCart = () => {
+    onAddToCart();
+  };
+
   return (
     <Card maxW="sm" flexBasis="calc(33.3333% - 20px)" margin="10px">
       <CardBody display="flex" flexDirection="column" gap={3}>
@@ -41,9 +48,16 @@ export default function ProductCard({
           R$ {price}
         </Text>
       </CardBody>
-      <Divider />
+      <Box>
+        <Divider />
+      </Box>
       <CardFooter>
-        <Button variant="solid" colorScheme="blue" width="100%">
+        <Button
+          variant="solid"
+          colorScheme="blue"
+          width="100%"
+          onClick={handleAddToCart}
+        >
           Adicionar ao carrinho
         </Button>
       </CardFooter>
