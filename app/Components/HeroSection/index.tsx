@@ -1,7 +1,4 @@
 import { Box, Image, Text } from "@chakra-ui/react";
-import { Montserrat } from "next/font/google";
-
-const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "700"] });
 
 interface HeroSectionProps {
   children: string;
@@ -16,7 +13,7 @@ export default function HeroSection({ children }: HeroSectionProps) {
         left="0"
         right="0"
         bottom="0"
-        backgroundColor="#2b6cb0c4"
+        bg="rgba(0, 0, 0, 0.5)"
       />
       <Image
         src="/img/banner.jpg"
@@ -35,7 +32,6 @@ export default function HeroSection({ children }: HeroSectionProps) {
         fontWeight="700"
         textShadow="0 0 10px rgba(0, 0, 0, 0.5)"
         textAlign="center"
-        className={montserrat.className}
       >
         {children}
       </Text>
