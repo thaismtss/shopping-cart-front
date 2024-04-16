@@ -1,7 +1,10 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
-export async function DELETE({ params }: { params: { id: string } }) {
+export async function DELETE(
+  req: NextResponse,
+  { params }: { params: { id: string } }
+) {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL;
     const cookieStore = cookies();
