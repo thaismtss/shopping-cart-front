@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Shopping Cart Front
 
-## Getting Started
+Projeto em NextJS que implementa uma vitrine e uma página de carrinho com o fluxo de adicionar items, alterar quantidade e excluir produtos
 
-First, run the development server:
+## Stack utilizada
+
+NextJs, React, Chakra UI, Typescript
+
+## Rodando localmente
+
+Siga estas etapas para executar o projeto em sua máquina local:
+
+1. **Clone o Repositório:**
+
+Abra o terminal e execute o seguinte comando para clonar o repositório do GitHub:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone git@github.com:thaismtss/shopping-cart-front.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Crie a Rede Docker:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Se ainda não tiver sido feito, crie a rede Docker executando o seguinte comando:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+docker network create -d bridge app-network
+```
 
-## Learn More
+2. **Execute os Comandos:**
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+  cp ./shopping-cart-front/.env.example ./shopping-cart-front/.env && docker compose -f ./shopping-cart-front/docker-compose.yml up -d
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Acesse a aplicação em: http://localhost:3000
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Referência
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Fake Store Api](https://fakestoreapi.com/docs)
+- [Chakra UI](https://v2.chakra-ui.com/getting-started)
+- [Next.js](https://nextjs.org/docs)
