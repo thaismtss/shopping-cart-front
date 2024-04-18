@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function DELETE(
-  req: NextResponse,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
@@ -28,7 +28,7 @@ export async function DELETE(
 }
 
 export async function PATCH(
-  req: NextResponse,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {

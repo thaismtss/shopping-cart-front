@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 interface CartItem {
   productId: number;
@@ -8,7 +8,7 @@ interface CartItem {
   image: string;
 }
 
-export async function POST(req: NextResponse) {
+export async function POST(req: NextRequest) {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL;
     const cookieStore = cookies();
@@ -40,7 +40,7 @@ export async function POST(req: NextResponse) {
         product_id: product.productId,
         quantity: 1,
         image_url: product.image,
-        price: 22.3,
+        price: product.price,
         title: product.title,
       }),
     });
@@ -53,6 +53,7 @@ export async function POST(req: NextResponse) {
 
     return NextResponse.json(null, { status: 400 });
   } catch (error: any) {
+    console.error(error);
     return NextResponse.json(null, { status: 500, statusText: error.message });
   }
 }
