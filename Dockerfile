@@ -6,12 +6,11 @@ WORKDIR /app
 
 COPY yarn*.lock ./
 
-RUN yarn install --frozen-lockfile
-
 EXPOSE 3000
 
 
 FROM base as dev
 ENV NODE_ENV=development
 COPY . .
+RUN yarn install
 CMD yarn run dev
