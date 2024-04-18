@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest --coverage",
+    "test:ui": "vitest --ui --coverage"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
@@ -20,11 +22,21 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^15.0.2",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-v8": "^1.5.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.1",
-    "typescript": "^5"
+    "jsdom": "^24.0.0",
+    "msw": "^2.2.13",
+    "next-router-mock": "^0.9.13",
+    "typescript": "^5",
+    "vitest": "^1.5.0"
   }
 }

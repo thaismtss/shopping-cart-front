@@ -23,6 +23,7 @@ export default function HeroSection({ children }: HeroSectionProps) {
         objectFit="cover"
       />
       <Text
+        as={"h1"}
         position="absolute"
         top="50%"
         left="50%"
