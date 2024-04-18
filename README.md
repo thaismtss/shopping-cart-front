@@ -28,11 +28,21 @@ docker network create -d bridge app-network
 
 2. **Execute os Comandos:**
 
+Navegue até o diretório do projeto clonado e execute os seguintes comandos:
+
 ```bash
-  cp ./shopping-cart-front/.env.example ./shopping-cart-front/.env && docker compose -f ./shopping-cart-front/docker-compose.yml up -d
+  cp ./.env.example ./.env && docker compose up -d
 ```
 
 Acesse a aplicação em: http://localhost:3000
+
+## Rodando os testes
+
+Execute os testes com o camando:
+
+```bash
+  docker exec shopping-cart-front yarn test
+```
 
 ## Referência
 

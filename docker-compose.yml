@@ -2,6 +2,7 @@ version: "3.8"
 services:
   web:
     image: shopping-cart-front
+    container_name: shopping-cart-front
     networks:
       - app-network
     build:
